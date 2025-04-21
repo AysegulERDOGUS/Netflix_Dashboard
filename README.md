@@ -4,18 +4,10 @@ While geographical distributions are visualised using cartograms, gender and cou
 Calculations created using DAX codes make the data more meaningful and functional.With different filtering options, users can customise the data according to their needs.
 
 ## Data Loading and Conversion Process
-In this project, the data used in Power BI were not directly loaded, but primarily prepared and loaded with SQL queries. Especially in columns containing more than one value, some functions were used to separate and analyse the data. In this way, cleaner and more structured data sets were transferred to Power BI and reporting processes were carried out in a healthier way.
+During the data loading process, columns containing multiple values were correctly parsed using SQL queries. This transformation allowed the data to be imported into the Power BI environment in a more structured and analyzable format, resulting in a clean and relational data model suitable for both modeling and reporting purposes.
 
+You can reach the data cleaning process I did from here: https://github.com/AysegulERDOGUS/Data_Cleaning
 
-      SELECT *,
-             TRIM(CountrySplit.value) AS Countries,
-             TRIM(CastSplit.value) AS Casts,
-             TRIM(List.value) AS List
-      
-      FROM Netflix_table
-      CROSS APPLY STRING_SPLIT(country, ',') AS CountrySplit
-      CROSS APPLY STRING_SPLIT(casts, ',') AS CastSplit
-      CROSS APPLY STRING_SPLIT(listed_in,',') AS List
 
 
 ## DAX Calculations Used
