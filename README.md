@@ -8,30 +8,13 @@ During the data loading process, columns containing multiple values were correct
 
 You can reach the data cleaning process I did from here: https://github.com/AysegulERDOGUS/Data_Cleaning
 
+## Dashboard Insight Summary
+
+Age Distribution: Countries with an above-average user age may indicate markets where the younger audience has not been effectively reached. These regions can offer potential for new market expansion.
+
+User Activity Timing: The most active days and hours provide guidance for optimal content release. Content should be prepared ahead of peak usage times to maximize engagement.
+
+First-Day Impact: Despite an increase in content volume, the expected growth in user activity was not observed. This may indicate a need to improve content quality or better align with user interests.
 
 
-## DAX Calculations Used
 
-1) Classification of Age Groups
-
-    Age Group = 
-
-                SWITCH(
-                    TRUE(),
-                    N_Customers[age] >= 18 && N_Customers[age] < 30, "18-29",
-                    N_Customers[age] >= 30 && N_Customers[age] < 45, "30-44",
-                    N_Customers[age] >= 45 && N_Customers[age] < 60, "45-59",
-                    N_Customers[age] >= 60, "60++",
-                    "unknown"
-                       )
-2) Average Value Calculation
-
-     Avg_Duration_Movie = 
-
-
-                       CALCULATE( AVERAGE(Netflix[duration]), Netflix[type]="Movie")
-
-     Avg_Season =
-
-
-                       CALCULATE(AVERAGE(Netflix[duration]),Netflix[type]="TV Show")
