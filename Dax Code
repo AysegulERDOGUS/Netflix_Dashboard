@@ -10,15 +10,12 @@
                     N_Customers[age] >= 60, "60++",
                     "unknown"
                        )
+
 2) Average Value Calculation
 
-     Avg_Duration_Movie = 
+     Avg_Duration_Movie = CALCULATE( AVERAGE(Netflix[duration]), Netflix[type]="Movie")
 
-                     CALCULATE( AVERAGE(Netflix[duration]), Netflix[type]="Movie")
-
-     Avg_Season =
-
-                 CALCULATE(AVERAGE(Netflix[
+     Avg_Season =  CALCULATE(AVERAGE('Netflix'[duration]),'Netflix'[type]="TV Show") 
 
 3)Calculate The Subscription Duration
 
