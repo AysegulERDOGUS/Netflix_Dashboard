@@ -14,11 +14,26 @@
 
      Avg_Duration_Movie = 
 
-
-                       CALCULATE( AVERAGE(Netflix[duration]), Netflix[type]="Movie")
+                     CALCULATE( AVERAGE(Netflix[duration]), Netflix[type]="Movie")
 
      Avg_Season =
 
+                 CALCULATE(AVERAGE(Netflix[
 
-                       CALCULATE(AVERAGE(Netflix[
+3)Calculate The Subscription Duration
 
+        Membership_Term = DATEDIFF(N_Customers[membership_date],TODAY(),YEAR)
+
+4) Day Parting
+
+        Hour_Movements = 
+         SWITCH(
+            TRUE(),
+            HOUR(N_Customers[Enter_Time]) >= 5 && HOUR(N_Customers[Enter_Time]) < 12, "Morning (05-12)",
+            HOUR(N_Customers[Enter_Time]) >= 12 && HOUR(N_Customers[Enter_Time]) < 18, "Afternoon (12-18)" ,
+            HOUR(N_Customers[Enter_Time]) >= 18 && HOUR(N_Customers[Enter_Time]) < 21, "Evening(18-21) ",
+            HOUR(N_Customers[Enter_Time]) >= 21 && HOUR(N_Customers[Enter_Time]) < 24, "Night(21-04)",
+            HOUR(N_Customers[Enter_Time]) >= 0 && HOUR(N_Customers[Enter_Time]) < 5, "Night(21-04)",
+            "Unknown"
+        )
+        
